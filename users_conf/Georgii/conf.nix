@@ -57,6 +57,22 @@
           theme = "robbyrussell";
         };
       };
+	programs.ssh = {
+        enable = true;
+        enableDefaultConfig = false;
+        matchBlocks = {
+          "*" = {
+            forwardAgent = false;
+            addKeysToAgent = "yes";
+          };
+          "nixpie4-config" = {
+            hostname = "github.com";
+            user = "git";
+            identityFile = "/etc/nixos/users_conf/Georgii/ssh_keys/private/nixpie4-config";
+            identitiesOnly = true;
+          };
+        };
+      };
     };
   };
 }
