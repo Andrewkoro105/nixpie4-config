@@ -5,7 +5,7 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-profile="$(cat /etc/nixos/counter) - $1"
+profile="$(cat /etc/nixos/counter)-$1"
 echo "$profile"
 
 new_value=$(( $(cat /etc/nixos/counter) + 1 ))
@@ -13,7 +13,7 @@ echo "$new_value" | sudo tee /etc/nixos/counter > /dev/null
 
 commit_msg="$1"
 
-sudo git add .
+git add .
 sudo nixos-rebuild switch --flake /etc/nixos/ -p "$profile"
-sudo git commit -m "$commit_msg"
-sudo git push
+git commit -m "$commit_msg"
+git push

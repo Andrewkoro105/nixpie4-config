@@ -62,9 +62,12 @@
     
       programs.ssh = {
         enable = true;
-        addKeysToAgent = "yes";
-        forwardAgent = false;
+        enableDefaultConfig = false;
         matchBlocks = {
+          "*" = {
+            forwardAgent = false;
+            addKeysToAgent = "yes";
+          };
           "nixpie4-config" = {
             hostname = "github.com";
             user = "git";
