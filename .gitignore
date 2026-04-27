@@ -1,0 +1,6 @@
+**/passhash
+**/ssh_keys/private
+**/ssh_keys/pub/**
+!**/ssh_keys/pub/login
+!**/ssh_keys/pub/login/**
+ass_git

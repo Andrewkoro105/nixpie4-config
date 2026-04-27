@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = nixpie4-config:Andrewkoro105/nixpie4-config.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
