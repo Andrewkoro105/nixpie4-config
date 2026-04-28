@@ -14,6 +14,6 @@ echo "$new_value" | sudo tee /etc/nixos/counter > /dev/null
 commit_msg="$1"
 
 git add .
-sudo nixos-rebuild switch --flake /etc/nixos/ -p "$profile"
+sudo nixos-rebuild switch --flake /etc/nixos/ -p "$profile" || exit 1
 git commit -m "$commit_msg"
 git push

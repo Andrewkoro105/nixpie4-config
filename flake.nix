@@ -5,7 +5,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    vscode-server.url = "github:nix-community/nixos-vscode-server"; 
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs =
@@ -13,20 +13,22 @@
       self,
       nixpkgs,
       home-manager,
-      vscode-server,
+      nix-minecraft,
       ...
     }:
     {
       nixosConfigurations.nixpie4 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit home-manager; 
-          inherit vscode-server; 
+          inherit 
+            home-manager 
+            nix-minecraft
+          ; 
         };
         modules = [
-          vscode-server.nixosModules.default
           ./configuration.nix
           ./hardware-configuration.nix
+          ./minecraft.nix
           ./users_conf/andrewkoro105/conf.nix
           ./users_conf/root/conf.nix
           ./users_conf/hypoxie/conf.nix

@@ -1,10 +1,12 @@
-{ config, lib, pkgs, home-manager, vscode-server, ... }:
+{ config, lib, pkgs, home-manager, ... }:
 
 {
 
   imports = [
     home-manager.nixosModules.home-manager
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   users.mutableUsers = false;
 
@@ -63,7 +65,7 @@
     vim
     tree
     wget
-    htop
+    btop
     bat
     hostapd
     dnsmasq
